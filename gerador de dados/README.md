@@ -1,0 +1,1 @@
+Gera usuários com base nos critérios pré-definidos e os salva em um arquivo json.
