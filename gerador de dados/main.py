@@ -31,7 +31,7 @@ def ler_json(filepath: str) -> str:
             data = json.load(f)
         return json.dumps(data, indent=2)
     except FileNotFoundError:
-        return f"Erro: O arquivo '{filepath} não foi encontrado!"
+        return f"Erro: O arquivo '{filepath}' não foi encontrado!"
     except json.JSONDecodeError as e:
         return f"Erro: Arquivo JSON inválido - {str(e)}"
     except Exception as e:
@@ -47,11 +47,11 @@ def gerar_exemplos(
     """Gerador de registros em JSON"""
 
     if not primeiros_nomes:
-        return {"Erro:" "Primeiro nome não podem estar vazios!"}
+        return {"Erro": "Primeiro nome não podem estar vazios!"}
     if not ultimos_nomes:
-        return {"Erro:" "Último nome não podem estar vazios!"}
+        return {"Erro": "Último nome não podem estar vazios!"}
     if not dominios:
-        return {"Erro:" "Domínio não podem estar vazios!"}
+        return {"Erro": "Domínio não podem estar vazios!"}
     
     usuarios = []
     count = len(primeiros_nomes)
@@ -89,10 +89,10 @@ def iniciar_agente(user_input: str, history: List[BaseMessage]) -> AIMessage:
     """Inicia o agente de IA"""
     try:
         result = agent.invoke(
-            {"Mensagens": history + [HumanMessage(content=user_input)]},
+            {"messages": history + [HumanMessage(content=user_input)]},
             config={"recursion_limit": 50}
         )
-        return result["Mensagens"][-1]
+        return result["messages"][-1]
     except Exception as e:
         return AIMessage(content=f"Erro: {str(e)}\n\nTente reformular a sua requisição ou seja mais específico")
     
