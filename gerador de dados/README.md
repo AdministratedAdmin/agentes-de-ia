@@ -1,1 +1,1 @@
-Gera usuários com base nos critérios pré-definidos e os salva em um arquivo json.
+Gera dados baseados nos critérios e na estrutura estabelecida. Uso para gerar registros em JSON para testar requisições, simulando um banco de dados.
